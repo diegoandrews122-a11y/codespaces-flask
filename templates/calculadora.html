@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}NutriVida - Calculadora{% endblock %}
+{% block conteudo %}
+<section class="form-card">
+    <h1>Calculadora de Calorias</h1>
+    <p>Informe o peso do alimento e as calorias por 100g para estimar o total de calorias.</p>
+    <form action="{{ url_for('resultado') }}" method="POST">
+        <label for="peso">Peso do alimento (em gramas)</label>
+        <input type="number" step="any" id="peso" name="peso" placeholder="Ex: 150" required>
+
+        <label for="calorias_100g">Calorias por 100g</label>
+        <input type="number" step="any" id="calorias_100g" name="calorias_100g" placeholder="Ex: 52" required>
+
+        <button type="submit">Calcular</button>
+    </form>
+</section>
+{% endblock %}

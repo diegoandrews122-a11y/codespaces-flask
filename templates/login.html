@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% from '_macros.html' import campo_senha %}
+
+{% block title %}Login - Portal Saúde &amp; Bem-Estar{% endblock %}
+
+{% block content %}
+<section class="card login-card">
+  <h2>Entrar na sua conta</h2>
+
+  {% if erro %}
+  <div class="alerta alerta-erro" role="alert">{{ erro }}</div>
+  {% endif %}
+
+  <form action="{{ url_for('login') }}" method="post">
+    <label for="email">Usuário / E-mail</label>
+    <input type="email" id="email" name="email" value="{{ email }}" placeholder="voce@email.com"
+           autocomplete="username" maxlength="120" required {% if not email %}autofocus{% endif %}>
+
+    {{ campo_senha('senha', 'senha', 'Senha') }}
+
+    <button type="submit" class="btn btn-largo">Entrar</button>
+  </form>
+
+  <p class="link-aux">Ainda não tem conta? <a href="{{ url_for('register') }}">Cadastre-se</a></p>
+</section>
+{% endblock %}

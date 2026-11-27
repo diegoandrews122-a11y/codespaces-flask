@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}NutriVida - Resultado{% endblock %}
+{% block conteudo %}
+<section class="form-card">
+    <h1>Resultado do Cálculo</h1>
+    <p>Para <strong>{{ peso }}g</strong> de alimento com <strong>{{ calorias_100g }}</strong> kcal por 100g:</p>
+    <p class="resultado-destaque">{{ calorias_totais }} kcal</p>
+
+    <a class="botao" href="{{ url_for('calculadora') }}">Fazer novo cálculo</a>
+    <a class="botao botao-secundario" href="{{ url_for('index') }}">Voltar ao início</a>
+</section>
+{% endblock %}
